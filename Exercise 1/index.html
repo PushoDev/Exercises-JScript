@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add List</title>
+    <!-- Script del Problema -->
+     <script src="./js/add.js"></script>
+    <style type="text/css">
+        table {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Dates Table</h1>
+    
+    <form action="">
+        <label for="date">Fecha / Date: </label>
+        <input type="date" id="date">
+        <br>
+    
+        <label for="desc">Descripción / Description: </label>
+        <input type="text" id="desc">
+        <br>
+    
+        <label for="amount">Monto / Amount: </label>
+        <input type="text" id="amount">
+        <br>
+    
+        <input type="button" id="submit" value="Submit">
+        <br>
+    </form>
+    
+    <table id="table">
+        <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Monto</th>
+        </tr>
+    </table>
+    
+    <script type="text/javascript">
+
+        document.getElementById("submit").onclick = function () {
+            document.getElementById("table").style.display = "block";
+
+            var table = document.getElementById("table");
+            var row = table.insertRow(-1);
+            var date = row.insertCell(0);
+            var desc = row.insertCell(1);
+            var amt = row.insertCell(2);
+            date.innerHTML = document.getElementById("date").value;
+            desc.innerHTML = document.getElementById("desc").value;
+            amt.innerHTML = document.getElementById("amount").value;
+
+            return false;
+        }
+
+    </script>
+</body>
+</html>
