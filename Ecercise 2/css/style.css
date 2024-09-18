@@ -1,0 +1,49 @@
+body{
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+* {
+  margin: 10px;
+}
+.ejemplo{
+    align-items:end;
+}
+.ver-ex
+{
+    font-family: 'Poppins';
+    font-size: 2rem;
+    color:cadetblue;
+    background-color: #666;                    
+}
+
+
+h1
+{
+    color: tomato;
+    background-color: white;
+}
+p{
+    color: #83FF00;
+}
+
+a
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aqua;    
+}
+
+.notebox {
+  border: 4px solid #666;
+  padding: .5em;
+  color: white;
+}
+
+.notebox.warning {
+  border-color: orange;
+  font-weight: bold;
+}
+
+.notebox.danger {
+  border-color: red;
+  font-weight: bold;
+}
