@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add, Edit, Delete</title>
+    <title>Add, Edit, Delete -> J.Script</title>
     <!-- Estilos -->
     <style>
         h1,
@@ -68,59 +68,90 @@
     <h1 style="color: #4CAF50;"> Agregar, Editar y Eliminar</h1>
 
     
-    <h2>User Data Management</h2>
+    <h2>Compra de Productos...</h2>
     
     <div id="formContainer">
-        <label for="nameInput">
-            Name:
-        </label>
-        <input type="text" id="nameInput" placeholder="Enter Name...">
-        <label for="emailInput">
-            Email ID:
-        </label>
-        <input type="email" id="emailInput" placeholder="Enter Email...">
-        <label for="numberInput">
-            Mobile Details:
-        </label>
-        <input type="text" id="numberInput" placeholder="Enter Mobile Details...">
-        <label for="addressInput">
-            Address:
-        </label>
-        <textarea id="addressInput" placeholder="Enter Address..."></textarea>
-        <br>
-        <button onclick="addData()">Add</button>
+        
+            <label for="fecha_compra">
+                Fecha de Compra
+            </label>
+            <input type="date" name="fecha_compra" id="fecha_compra">
+            
+            <label for="proveedor">
+                Proveedor:
+            </label>
+            <input type="text" id="proveedor" placeholder="Ingresar Proveedor del Producto...">
+            
+            <label for="almacen_destino">
+                Almacén de Destino
+            </label>
+            <input type="text" id="almacen_destino" placeholder="Almacén Destinatario">
+            
+            <label for="name_producto"></label>
+            Nombre del Producto
+            </label>
+            <input type="text" id="name_producto" placeholder="Nombre del Producto">
+            
+            <label for="cantidad_compra">
+                Cantidad de Compra
+            </label>
+            <input type="text" id="cantidad_compra" placeholder="Cantidad de Productas...">
+            
+            <label for="precio_compra">
+                Precio de Compra
+            </label>
+            <input type="text" id="precio_compra" placeholder="Precio del Producto">
+            
+            <label for="subtotal_compra"></label>
+            Subtotal
+            </label>
+            <input type="text" id="subtotal_compra" placeholder="Subtotal de la compra">
+            
+            <br>
+            
+            <button onclick="addData()">Agregar</button>
+        
     </div>
     
     <table id="outputTable">
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile Details</th>
-            <th>Address</th>
-            <th>Action</th>
+            <th>Fecha</th>
+            <th>Proveedor</th>
+            <th>Almacén</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+            <th>Acciones</th>
         </tr>
     </table>
     
     <script>
         function addData() {
             // Get input values
-            let name = document.getElementById("nameInput").value;
-            let email = document.getElementById("emailInput").value;
-            let mobile = document.getElementById("numberInput").value;
-            let address = document.getElementById("addressInput").value;
+            let fecha_compra = document.getElementById("fecha_compra").value;
+            let proveedor = document.getElementById("proveedor").value;
+            let almacen_destino = document.getElementById("almacen_destino").value;
+            let name_producto = document.getElementById("name_producto").value;
+            let cantidad_compra = document.getElementById("cantidad_compra").value;
+            let precio_compra = document.getElementById("precio_compra").value;
+            let subtotal_compra = document.getElementById("subtotal_compra").value;
 
             // Get the table and insert a new row at the end
             let table = document.getElementById("outputTable");
             let newRow = table.insertRow(table.rows.length);
 
             // Insert data into cells of the new row
-            newRow.insertCell(0).innerHTML = name;
-            newRow.insertCell(1).innerHTML = email;
-            newRow.insertCell(2).innerHTML = mobile;
-            newRow.insertCell(3).innerHTML = address;
-            newRow.insertCell(4).innerHTML =
-                '<button onclick="editData(this)">Edit</button>' +
-                '<button onclick="deleteData(this)">Delete</button>';
+            newRow.insertCell(0).innerHTML = fecha_compra;
+            newRow.insertCell(1).innerHTML = proveedor;
+            newRow.insertCell(2).innerHTML = almacen_destino;
+            newRow.insertCell(3).innerHTML= name_producto;
+            newRow.insertCell(4).innerHTML = cantidad_compra;
+            newRow.insertCell(5).innerHTML = precio_compra;
+            newRow.insertCell(6).innerHTML= subtotal_compra;
+            newRow.insertCell(7).innerHTML =
+                '<button onclick="editData(this)">Editar</button>' +
+                '<button onclick="deleteData(this)">Eliminar</button>';
 
             // Clear input fields
             clearInputs();
@@ -132,32 +163,32 @@
             let row = button.parentNode.parentNode;
 
             // Get the cells within the row
-            let nameCell = row.cells[0];
-            let emailCell = row.cells[1];
-            let mobileCell = row.cells[2];
-            let addressCell = row.cells[3];
+            let proveedorCell = row.cells[1];
+            let almacen_destinoCell = row.cells[2];
+            let cantidad_compraCell = row.cells[3];
+            let precio_compraCell = row.cells[4];
 
             // Prompt the user to enter updated values
-            let nameInput =
-                prompt("Enter the updated name:",
-                    nameCell.innerHTML);
-            let emailInput =
-                prompt("Enter the updated email:",
-                    emailCell.innerHTML);
-            let numberInput =
-                prompt("Enter the updated mobile details:",
-                    mobileCell.innerHTML
+            let proveedor =
+                prompt("Actualizar Proveedor",
+                    proveedorCell.innerHTML);
+            let almacen_destino =
+                prompt("Almacén de Destino:",
+                    almacen_destinoCell.innerHTML);
+            let cantidad_compra =
+                prompt("Detalles de la Cantidad de Productos:",
+                    cantidad_compraCell.innerHTML
                 );
-            let addressInput =
-                prompt("Enter the updated address:",
-                    addressCell.innerHTML
+            let precio_compra =
+                prompt("Actualizar Precio del Producto:",
+                    precio_compraCell.innerHTML
                 );
 
             // Update the cell contents with the new values
-            nameCell.innerHTML = nameInput;
-            emailCell.innerHTML = emailInput;
-            mobileCell.innerHTML = numberInput;
-            addressCell.innerHTML = addressInput;
+            proveedorCell.innerHTML = proveedor;
+            almacen_destinoCell.innerHTML = almacen_destino;
+            cantidad_compraCell.innerHTML = cantidad_compra;
+            precio_compraCell.innerHTML = precio_compra;
         }
 
         function deleteData(button) {
@@ -172,10 +203,13 @@
         function clearInputs() {
 
             // Clear input fields
-            document.getElementById("nameInput").value = "";
-            document.getElementById("emailInput").value = "";
-            document.getElementById("numberInput").value = "";
-            document.getElementById("addressInput").value = "";
+            document.getElementById("fecha_compra").value = ""; 
+            document.getElementById("proveedor").value = "";
+            document.getElementById("almacen_destino").value = "";
+            document.getElementById("name_producto").value= "";
+            document.getElementById("cantidad_compra").value = "";
+            document.getElementById("precio_compra").value = "";
+            document.getElementById("subtotal_compra").value = "";
         }
     </script>
     
